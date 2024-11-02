@@ -1,0 +1,52 @@
+
+{% load static %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/user_dashboard.css' %}">
+</head>
+<body>
+    <header>
+        <h1>User Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="user-dashboard">
+        <section class="dashboard-section">
+            <h2>Welcome, User!</h2>
+            <p>Manage your library activities here.</p>
+        </section>
+        <section class="dashboard-section">
+            <h3>Borrowed Books</h3>
+            <ul>
+                <!-- List of borrowed books -->
+                <li><a href="/user/borrowed-books">View Borrowed Books</a></li>
+            </ul>
+        </section>
+        <section class="dashboard-section">
+            <h3>Reserved Books</h3>
+            <ul>
+                <!-- List of reserved books -->
+                <li><a href="/user/reserved-books">View Reserved Books</a></li>
+            </ul>
+        </section>
+        <section class="dashboard-section">
+            <h3>Account Settings</h3>
+            <ul>
+                <li><a href="/user/account-settings">Edit Account Settings</a></li>
+            </ul>
+        </section>
+    </main>
+    <script src="{% static 'js/user_dashboard.js' %}"></script>
+</body>
+</html>

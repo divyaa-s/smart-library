@@ -1,0 +1,32 @@
+{% load static %} 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    <header>
+        <h1>About Our Library</h1>
+        <nav>
+            <ul>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <h2>History</h2>
+        <p>Our library was founded in...</p>
+        <h2>Mission</h2>
+        <p>Our mission is to...</p>
+        <h2>Vision</h2>
+        <p>Our vision is to...</p>
+    </main>
+    <script src="{% static 'js/about.js' %}"></script>
+</body>
+</html>

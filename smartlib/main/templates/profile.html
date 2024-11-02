@@ -1,0 +1,47 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="user-profile">
+        <h2>Profile of {{ user.name }}</h2>
+
+        <section class="personal-info">
+            <h3>Personal Information</h3>
+            <p>Name: {{ user.name }}</p>
+            <p>Email: {{ user.email }}</p>
+            <p>Phone: {{ user.phone }}</p>
+            <a href="{% url 'edit_profile' %}">Edit Profile</a>
+        </section>
+
+        <section class="reading-history">
+            <h3>Reading History</h3>
+            <ul>
+                {% for book in reading_history %}
+                    <li>{{ book.title }} (Borrowed on: {{ book.borrowed_date }})</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="recommendation-preferences">
+            <h3>Recommendation Preferences</h3>
+            <form method="post" action="{% url 'update_preferences' %}">
+                {% csrf_token %}
+                <label for="genres">Favorite Genres:</label>
+                <input type="text" id="genres" name="genres" value="{{ user.preferences.genres }}">
+
+                <label for="authors">Favorite Authors:</label>
+                <input type="text" id="authors" name="authors" value="{{ user.preferences.authors }}">
+
+                <button type="submit">Update Preferences</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

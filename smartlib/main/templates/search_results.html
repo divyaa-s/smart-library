@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="search-results">
+        <h2>Search Results</h2>
+        <div class="filters">
+            <label for="genre">Genre:</label>
+            <select id="genre" name="genre">
+                <!-- Dynamic genre options -->
+            </select>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author">
+
+            <label for="availability">Availability:</label>
+            <select id="availability" name="availability">
+                <option value="all">All</option>
+                <option value="available">Available</option>
+                <option value="borrowed">Borrowed</option>
+                <option value="reserved">Reserved</option>
+            </select>
+        </div>
+        <ul>
+            {% for book in search_results %}
+                <li>{{ book.title }} by {{ book.author }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
